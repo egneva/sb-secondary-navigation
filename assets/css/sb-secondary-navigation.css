@@ -1,0 +1,129 @@
+/* Main menu styles */
+.secondary-navigation {
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.secondary-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.secondary-menu > li {
+    position: relative;
+}
+
+.secondary-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    border: 1px solid #ddd; /* Add border around each item */
+}
+
+.secondary-menu > li > a:hover,
+.secondary-menu > li:focus-within > a {
+    background-color: #e8e8e8;
+    color: #000;
+}
+
+/* Submenu styles */
+.secondary-menu ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    z-index: 1000;
+    padding: 0; /* Remove default padding */
+}
+
+.secondary-menu li:hover > ul,
+.secondary-menu li:focus-within > ul {
+    display: block;
+}
+
+.secondary-menu ul li {
+    width: 100%;
+}
+
+.secondary-menu ul a {
+    padding: 10px 15px;
+    font-size: 14px;
+    border-top: none; /* Remove top border for stacked submenu items */
+}
+
+.secondary-menu ul li:first-child > a {
+    border-top: 1px solid #ddd; /* Add top border for first submenu item */
+}
+
+.secondary-menu ul a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Remove default list styling */
+.secondary-menu ul,
+.secondary-menu ul ul {
+    list-style: none;
+    margin: 0;
+}
+
+/* Arrow for items with submenus */
+.secondary-menu > li.menu-item-has-children > a::after {
+    content: '\25BC';
+    margin-left: 5px;
+    font-size: 10px;
+    vertical-align: middle;
+}
+
+.secondary-menu ul li.menu-item-has-children > a::after {
+    content: '\25B6';
+    float: right;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .secondary-menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .secondary-menu ul {
+        position: static;
+        display: none;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .secondary-menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .secondary-menu li:hover > ul,
+    .secondary-menu li:focus-within > ul {
+        display: none;
+    }
+
+    .secondary-menu > li.menu-item-has-children > a::after,
+    .secondary-menu ul li.menu-item-has-children > a::after {
+        content: '\25BC';
+        float: none;
+        margin-left: 5px;
+    }
+
+    .secondary-menu .submenu-open > ul {
+        display: block;
+    }
+
+    .secondary-menu ul a {
+        border-top: 1px solid #ddd; /* Add top border for all submenu items on mobile */
+    }
+}
