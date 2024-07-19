@@ -1,35 +1,50 @@
-/* Main menu styles */
+/* Container for the menu */
 .secondary-navigation {
     background-color: #f8f8f8;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
 }
 
+/* Main menu styles */
 .secondary-menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .secondary-menu > li {
-    position: relative;
+    margin: 5px;
 }
 
 .secondary-menu a {
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 10px 15px;
     text-decoration: none;
     color: #333;
     font-size: 16px;
     transition: background-color 0.3s, color 0.3s;
-    border: 1px solid #ddd; /* Add border around each item */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
 }
 
 .secondary-menu > li > a:hover,
 .secondary-menu > li:focus-within > a {
     background-color: #e8e8e8;
     color: #000;
+}
+
+/* Arrow for items with submenus */
+.secondary-menu > li.menu-item-has-children > a::after {
+    content: '\25BC';
+    margin-left: 10px;
+    font-size: 10px;
+    border-left: 1px solid #ddd;
+    padding-left: 10px;
 }
 
 /* Submenu styles */
@@ -42,7 +57,8 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     min-width: 200px;
     z-index: 1000;
-    padding: 0; /* Remove default padding */
+    padding: 5px 0;
+    border-radius: 5px;
 }
 
 .secondary-menu li:hover > ul,
@@ -52,46 +68,35 @@
 
 .secondary-menu ul li {
     width: 100%;
-    position: relative;
 }
 
 .secondary-menu ul a {
-    padding: 10px 15px;
+    padding: 8px 15px;
     font-size: 14px;
-    border-top: none; /* Remove top border for stacked submenu items */
+    border: none;
+    border-radius: 0;
 }
 
 .secondary-menu ul li:first-child > a {
-    border-top: 1px solid #ddd; /* Add top border for first submenu item */
+    border-top: none;
 }
 
 .secondary-menu ul a:hover {
     background-color: #f0f0f0;
 }
-/*Third level submenu*/
+
+/* Third-level submenu */
 .secondary-menu ul ul {
     top: 0;
     left: 100%;
 }
 
-/* Remove default list styling */
-.secondary-menu ul,
-.secondary-menu ul ul {
-    list-style: none;
-    margin: 0;
-}
-
-/* Arrow for items with submenus */
-.secondary-menu > li.menu-item-has-children > a::after {
-    content: '\25BC';
-    margin-left: 5px;
-    font-size: 10px;
-    vertical-align: middle;
-}
-
 .secondary-menu ul li.menu-item-has-children > a::after {
     content: '\25B6';
     float: right;
+    border-left: 1px solid #ddd;
+    padding-left: 10px;
+    margin-left: 10px;
 }
 
 /* Responsive styles */
@@ -101,8 +106,9 @@
         align-items: stretch;
     }
 
-    .secondary-menu li {
-        width: 100%;
+    .secondary-menu > li {
+        width: calc(100% - 10px);
+        margin: 5px;
     }
 
     .secondary-menu a {
@@ -132,9 +138,5 @@
 
     .secondary-menu .submenu-open > ul {
         display: block;
-    }
-
-    .secondary-menu ul a {
-        border-top: 1px solid #ddd;
     }
 }
