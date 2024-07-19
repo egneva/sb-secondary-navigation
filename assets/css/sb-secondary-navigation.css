@@ -52,6 +52,7 @@
 
 .secondary-menu ul li {
     width: 100%;
+    position: relative;
 }
 
 .secondary-menu ul a {
@@ -66,6 +67,11 @@
 
 .secondary-menu ul a:hover {
     background-color: #f0f0f0;
+}
+/*Third level submenu*/
+.secondary-menu ul ul {
+    top: 0;
+    left: 100%;
 }
 
 /* Remove default list styling */
@@ -92,7 +98,15 @@
 @media (max-width: 768px) {
     .secondary-menu {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+    }
+
+    .secondary-menu li {
+        width: 100%;
+    }
+
+    .secondary-menu a {
+        text-align: left;
     }
 
     .secondary-menu ul {
@@ -102,21 +116,18 @@
         box-shadow: none;
     }
 
-    .secondary-menu li {
-        width: 100%;
-        text-align: center;
+    .secondary-menu ul a {
+        padding-left: 30px;
     }
 
-    .secondary-menu li:hover > ul,
-    .secondary-menu li:focus-within > ul {
-        display: none;
+    .secondary-menu ul ul a {
+        padding-left: 45px;
     }
 
     .secondary-menu > li.menu-item-has-children > a::after,
     .secondary-menu ul li.menu-item-has-children > a::after {
         content: '\25BC';
-        float: none;
-        margin-left: 5px;
+        float: right;
     }
 
     .secondary-menu .submenu-open > ul {
@@ -124,6 +135,6 @@
     }
 
     .secondary-menu ul a {
-        border-top: 1px solid #ddd; /* Add top border for all submenu items on mobile */
+        border-top: 1px solid #ddd;
     }
 }
