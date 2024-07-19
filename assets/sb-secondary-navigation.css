@@ -23,6 +23,7 @@
     color: #333;
     font-size: 16px;
     transition: background-color 0.3s, color 0.3s;
+    border: 1px solid #ddd; /* Add border around each item */
 }
 
 .secondary-menu > li > a:hover,
@@ -41,6 +42,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     min-width: 200px;
     z-index: 1000;
+    padding: 0; /* Remove default padding */
 }
 
 .secondary-menu li:hover > ul,
@@ -55,10 +57,22 @@
 .secondary-menu ul a {
     padding: 10px 15px;
     font-size: 14px;
+    border-top: none; /* Remove top border for stacked submenu items */
+}
+
+.secondary-menu ul li:first-child > a {
+    border-top: 1px solid #ddd; /* Add top border for first submenu item */
 }
 
 .secondary-menu ul a:hover {
     background-color: #f0f0f0;
+}
+
+/* Remove default list styling */
+.secondary-menu ul,
+.secondary-menu ul ul {
+    list-style: none;
+    margin: 0;
 }
 
 /* Arrow for items with submenus */
@@ -107,5 +121,9 @@
 
     .secondary-menu .submenu-open > ul {
         display: block;
+    }
+
+    .secondary-menu ul a {
+        border-top: 1px solid #ddd; /* Add top border for all submenu items on mobile */
     }
 }
