@@ -3,7 +3,7 @@
 Plugin Name: SB Secondary Navigation
 Plugin URI: https://sibenotes.com/
 Description: Adds a customizable secondary navigation menu to your WordPress site.
-Version: 1.0.1
+Version: 1.0.2
 Author: S Balu
 Author URI: https://egneva.com/
 License: GPL2
@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
 // Define plugin constants
 define('SB_SECONDARY_NAV_PATH', plugin_dir_path(__FILE__));
 define('SB_SECONDARY_NAV_URL', plugin_dir_url(__FILE__));
-define('SB_SECONDARY_NAV_VERSION', '1.0.1');
+define('SB_SECONDARY_NAV_VERSION', '1.0.2');
 
 // Include necessary files
 require_once SB_SECONDARY_NAV_PATH . 'includes/class-sb-secondary-navigation.php';
