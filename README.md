@@ -47,7 +47,7 @@ Changelog:
     
     Version 1.0 - Initial release
     Version 1.0.1 - Improved functionality. Isssue fixes.
-    Version 1.0.2 - Added Sticky Navigation
+    Version 1.0.2 - Added Sticky Navigation. reverted, not working
 
 Upgrade Notice:
 
