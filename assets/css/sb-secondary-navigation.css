@@ -219,31 +219,4 @@
     }
 }
 
-/*Sticky Navigation */
-.secondary-menu-container {
-    position: sticky;
-    top: 0;
-    z-index: 1000; /* Ensure it's above other content */
-    background-color: #fff; /* Or any color that matches your design */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow */
-}
 
-/* Adjust for WordPress admin bar when logged in */
-.admin-bar .secondary-menu-container {
-    top: 32px;
-}
-
-@media screen and (max-width: 782px) {
-    .admin-bar .secondary-menu-container {
-        top: 46px;
-    }
-}
-
-/* Optional: Add a transition for smoother appearance */
-.secondary-menu-container {
-    transition: transform 0.3s ease-in-out;
-}
-
-.secondary-menu-container.nav-up {
-    transform: translateY(-100%);
-}
