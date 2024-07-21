@@ -2,7 +2,7 @@
 .secondary-navigation {
     background-color: #f8f8f8;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
+    padding: 4px 0 3px;
     position: relative;
     z-index: 100;
 }
@@ -31,14 +31,14 @@
 
 .secondary-menu > li {
     flex: 0 0 auto;
-    margin: 5px;
+    margin: 3px;
     position: relative;
 }
 
 .secondary-menu a {
     display: flex;
     align-items: center;
-    padding: 10px 15px;
+    padding: 7px 12px;
     text-decoration: none;
     color: #333;
     font-size: 16px;
@@ -57,9 +57,9 @@
 
 /* Arrow for items with submenus */
 .secondary-menu > li.menu-item-has-children > a::after {
-    content: '\25BC';
+    content: '\2630';
     margin-left: 10px;
-    font-size: 10px;
+    font-size: 16px;
     border-left: 1px solid #ddd;
     padding-left: 10px;
 }
@@ -113,7 +113,7 @@
 }
 
 .secondary-menu ul li.menu-item-has-children > a::after {
-    content: '\25B6';
+    content: '\00BB';
     float: right;
     border-left: 1px solid #ddd;
     padding-left: 10px;
@@ -177,10 +177,10 @@
         display: block;
     }
     .secondary-menu > li.menu-item-has-children > a::after {
-        content: '\25BC';
+        content: '\2630';
     }
     .secondary-menu > li.submenu-open > a::after {
-        content: '\25B2';
+        content: '\2BB9';
     }
     
     /* Ensure the main menu container has a lower z-index */
