@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: SB Secondary Navigation
-Plugin URI: https://egneva.com/
+Plugin URI: https://sibenotes.com/
 Description: Adds a customizable secondary navigation menu to your WordPress site.
-Version: 1.0
+Version: 1.0.1
 Author: S Balu
 Author URI: https://egneva.com/
 License: GPL2
@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
 // Define plugin constants
 define('SB_SECONDARY_NAV_PATH', plugin_dir_path(__FILE__));
 define('SB_SECONDARY_NAV_URL', plugin_dir_url(__FILE__));
-define('SB_SECONDARY_NAV_VERSION', '1.0');
+define('SB_SECONDARY_NAV_VERSION', '1.0.1');
 
 // Include necessary files
 require_once SB_SECONDARY_NAV_PATH . 'includes/class-sb-secondary-navigation.php';
@@ -28,3 +28,11 @@ function sb_secondary_navigation_init() {
     $sb_secondary_navigation->init();
 }
 add_action('plugins_loaded', 'sb_secondary_navigation_init');
+
+// Add settings link on plugin page
+function sb_secondary_navigation_settings_link($links) {
+    $settings_link = '<a href="options-general.php?page=sb-secondary-navigation">' . __('Settings') . '</a>';
+    array_unshift($links, $settings_link);
+    return $links;
+}
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'sb_secondary_navigation_settings_link');
