@@ -69,8 +69,9 @@ function sb_secondary_nav_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'sb_secondary_nav_enqueue_styles', 20);
 
-// Make sure you have a function to enqueue your main plugin stylesheet
-function sb_secondary_nav_enqueue_main_style() {
-    wp_enqueue_style('sb-secondary-navigation', plugin_dir_url(__FILE__) . 'css/secondary-navigation.css', array(), '1.0.0');
+// enqueue stylesheet
+function sb_secondary_nav_enqueue_scripts() {
+    wp_enqueue_style('sb-secondary-navigation', plugin_dir_url(__FILE__) . 'css/sb-secondary-navigation.css', array(), '1.0.1');
+    wp_enqueue_script('sb-sticky-nav', plugin_dir_url(__FILE__) . 'js/sb-sticky-nav.js', array(), '1.0.0', true);
 }
-add_action('wp_enqueue_scripts', 'sb_secondary_nav_enqueue_main_style');
+add_action('wp_enqueue_scripts', 'sb_secondary_nav_enqueue_scripts');
