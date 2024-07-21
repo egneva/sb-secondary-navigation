@@ -188,6 +188,13 @@
         position: relative;
         z-index: 1000;
     }
+    /*Align drop down menu*/
+    .secondary-menu > li.menu-item-has-children > a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
 }
 
 /* Ensure submenus are visible on larger screens */
