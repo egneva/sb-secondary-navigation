@@ -73,6 +73,6 @@ add_action('wp_enqueue_scripts', 'sb_secondary_nav_enqueue_styles', 20);
 function sb_secondary_nav_enqueue_scripts() {
     $plugin_url = plugin_dir_url(__FILE__);
     wp_enqueue_style('sb-secondary-navigation', $plugin_url . 'assets/css/sb-secondary-navigation.css', array(), '1.0.1');
-    wp_enqueue_script('sb-sticky-nav', $plugin_url . 'assets/js/sb-sticky-nav.js', array(), '1.0.0', true);
+    
 }
 add_action('wp_enqueue_scripts', 'sb_secondary_nav_enqueue_scripts');
