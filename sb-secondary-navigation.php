@@ -36,3 +36,41 @@ function sb_secondary_navigation_settings_link($links) {
     return $links;
 }
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'sb_secondary_navigation_settings_link');
+
+
+//enque styles, fix z index issue btw main and secondary 
+function sb_secondary_nav_enqueue_styles() {
+    wp_add_inline_style('sb-secondary-navigation', '
+        /* Ensure main menu is above secondary menu */
+        .main-navigation,
+        .main-menu-container,
+        #primary-menu,
+        .menu-main-menu-container {
+            position: relative;
+            z-index: 1000;
+        }
+
+        /* Dropdown menus should have a higher z-index */
+        .main-navigation ul ul,
+        .main-menu-container ul ul,
+        #primary-menu ul ul,
+        .menu-main-menu-container ul ul {
+            z-index: 1001;
+        }
+
+        /* Secondary menu should have a lower z-index */
+        .secondary-menu-container,
+        #secondary-menu,
+        .menu-secondary-menu-container {
+            position: relative;
+            z-index: 999;
+        }
+    ');
+}
+add_action('wp_enqueue_scripts', 'sb_secondary_nav_enqueue_styles', 20);
+
+// Make sure you have a function to enqueue your main plugin stylesheet
+function sb_secondary_nav_enqueue_main_style() {
+    wp_enqueue_style('sb-secondary-navigation', plugin_dir_url(__FILE__) . 'css/secondary-navigation.css', array(), '1.0.0');
+}
+add_action('wp_enqueue_scripts', 'sb_secondary_nav_enqueue_main_style');
