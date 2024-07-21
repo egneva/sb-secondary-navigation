@@ -37,9 +37,9 @@ function sb_secondary_navigation_settings_link($links) {
 }
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'sb_secondary_navigation_settings_link');
 
-
-//enque styles, fix z index issue btw main and secondary 
+// Enqueue styles
 function sb_secondary_nav_enqueue_styles() {
+    wp_enqueue_style('sb-secondary-navigation', SB_SECONDARY_NAV_URL . 'assets/css/sb-secondary-navigation.css', array(), '1.0.2');
     wp_add_inline_style('sb-secondary-navigation', '
         /* Ensure main menu is above secondary menu */
         .main-navigation,
@@ -47,7 +47,7 @@ function sb_secondary_nav_enqueue_styles() {
         #primary-menu,
         .menu-main-menu-container {
             position: relative;
-            z-index: 1000;
+            z-index: 1001;
         }
 
         /* Dropdown menus should have a higher z-index */
@@ -55,7 +55,7 @@ function sb_secondary_nav_enqueue_styles() {
         .main-menu-container ul ul,
         #primary-menu ul ul,
         .menu-main-menu-container ul ul {
-            z-index: 1001;
+            z-index: 1002;
         }
 
         /* Secondary menu should have a lower z-index */
@@ -63,16 +63,14 @@ function sb_secondary_nav_enqueue_styles() {
         #secondary-menu,
         .menu-secondary-menu-container {
             position: relative;
-            z-index: 999;
+            z-index: 1000;
         }
     ');
 }
 add_action('wp_enqueue_scripts', 'sb_secondary_nav_enqueue_styles', 20);
 
-// enqueue stylesheet
+// Enqueue scripts
 function sb_secondary_nav_enqueue_scripts() {
-    $plugin_url = plugin_dir_url(__FILE__);
-    wp_enqueue_style('sb-secondary-navigation', $plugin_url . 'assets/css/sb-secondary-navigation.css', array(), '1.0.1');
-    
+    wp_enqueue_script('sb-secondary-navigation', SB_SECONDARY_NAV_URL . 'assets/js/sb-secondary-navigation.js', array('jquery'), '1.0.2', true);
 }
 add_action('wp_enqueue_scripts', 'sb_secondary_nav_enqueue_scripts');
