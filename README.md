@@ -3,7 +3,7 @@ A simple Secondary Navigation Plugin for Generatepress
 
 Description: This plugin adds a customizable secondary navigation menu to your WordPress theme and provides options for responsive behavior.
 
-Version: 1.0.1
+Version: 1.0.2
 
 Author: S Balu
 
@@ -44,9 +44,10 @@ Additional Notes:
     For further customization or troubleshooting, refer to the plugin's code or consult a WordPress developer.
 
 Changelog:
-    Version 1.0.1 - Improved functionality. Isssue fixes.
     
     Version 1.0 - Initial release
+    Version 1.0.1 - Improved functionality. Isssue fixes.
+    Version 1.0.2 - Added Sticky Navigation
 
 Upgrade Notice:
 
